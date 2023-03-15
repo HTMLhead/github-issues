@@ -1,8 +1,12 @@
 import { getIssueInfoList } from "./apis/getIssueInfoList";
-import { checkIssueState } from "./helper/issue";
 import { renderIssueList } from "./render";
+// tpl
 import { getIssueTpl } from "./tpl";
-import { $, pipe } from "./utils";
+// helper
+import { checkIssueState } from "./helper/issue";
+import { addIssueStatusBtnEvent } from "./helper/attachEvent";
+// utils
+import { $ } from "./utils";
 
 async function init() {
   const issueInfoList = await getIssueInfoList();
@@ -18,22 +22,12 @@ async function init() {
   await attachEvent(issueListContainer);
 }
 
-async function attachEvent(ele: Element) {
-  const openBtn = $(".open-count");
-  const closeBtn = $(".close-count");
+async function attachEvent(containerEle: Element) {
+  const openBtn = $(".open-count") as Element;
+  const closeBtn = $(".close-count") as Element;
 
-  openBtn?.addEventListener("click", async () => {
-    const issueInfoList = await getIssueInfoList();
-    openBtn.classList.add("font-bold");
-    closeBtn?.classList.remove("font-bold");
-    await renderIssueList(issueInfoList, "open", ele);
-  });
-  closeBtn?.addEventListener("click", async () => {
-    const issueInfoList = await getIssueInfoList();
-    closeBtn.classList.add("font-bold");
-    openBtn?.classList.remove("font-bold");
-    await renderIssueList(issueInfoList, "close", ele);
-  });
+  addIssueStatusBtnEvent(openBtn, closeBtn, containerEle, "open");
+  addIssueStatusBtnEvent(closeBtn, openBtn, containerEle, "close");
 }
 
 init();
