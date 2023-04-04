@@ -1,4 +1,4 @@
-export function getIssueTpl(issueCount, status) {
+export function getIssueTpl(issueCount) {
   return `
     <div id="issue-wrapper" class="w-9/12 m-auto min-w-min">
     <div id="header" class="flex justify-between">
@@ -220,8 +220,8 @@ export function getLabelTpl() {
     </ul>
   </div>
     <button class="refresh-labels base-outer p-2 mt-2 float-right">update labels</button>
-</div>
-  `;
+  </div>
+`;
 }
 
 export function getLabelItemTpl({ name, color, description }) {
