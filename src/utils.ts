@@ -3,8 +3,10 @@ const $ = (selector: string) => document.querySelector(selector);
 const $$ = (selector: string) => document.querySelectorAll(selector);
 
 const pipe =
-  (...functions) =>
-  (args) =>
+  (...functions: any[]) =>
+  (args: any[]) =>
     functions.reduce((arg, nextFn) => nextFn(arg), args);
 
-export { $, $$, pipe };
+const root = $("#app");
+
+export { $, $$, pipe, root };
