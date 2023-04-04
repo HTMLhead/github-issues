@@ -1,20 +1,18 @@
 // api
 import { getLabelInfoList } from "@/apis/getLabelInfoList";
-// event
-import { attachEvent } from "@/events/issue";
-// render
-import { renderIssueList } from "@/render";
-// helper
-import { checkIssueState } from "@/helper/issue";
 // template
 import { getLabelTpl } from "@/tpl";
 // utils
 import { $, root } from "@/utils";
+import renderLabelList from "./renderLabelList";
 
-async function renderIssuePage() {
-  const issueInfoList = await getLabelInfoList();
+async function renderLabelPage() {
+  const labelInfoList = await getLabelInfoList();
 
   if (root) root.innerHTML = getLabelTpl();
+  const labelList = $(".label-list");
+
+  renderLabelList(labelInfoList, labelList);
 }
 
-export default renderIssuePage;
+export default renderLabelPage;

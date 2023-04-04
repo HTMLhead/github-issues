@@ -5,17 +5,16 @@ import { getCloseIssueList, getOpenIssueList } from "../helper/issue";
 // util
 import { pipe } from "../utils";
 
-// const makeIssueTplList = (issueList: Issue[]) =>
-//   issueList.map((issue: Issue) => getLabelItemTpl(issue));
+const makeIssueTplList = (labelList: Label[]) =>
+  labelList.map((issue: Label) => getLabelItemTpl(issue));
 
-// const combineIssueTplList = (issueTplList: string[]) =>
-//   issueTplList.reduce((bef: string, cur: string) => (bef += cur), "");
+const combineIssueTplList = (labelTplList: string[]) =>
+  labelTplList.reduce((bef: string, cur: string) => (bef += cur), "");
 
-// async function renderIssueList(issueInfoList: Issue[], status: string, ele: Element) {
-//   const getIssueListByStatus = status === "open" ? getOpenIssueList : getCloseIssueList;
-//   const issueTpl = pipe(getIssueListByStatus, makeIssueTplList, combineIssueTplList)(issueInfoList);
+async function renderLabelList(labelInfoList: Label[], ele: Element) {
+  const labelTpl = pipe(makeIssueTplList, combineIssueTplList)(labelInfoList);
 
-//   if (ele) ele.innerHTML = issueTpl;
-// }
+  if (ele) ele.innerHTML = labelTpl;
+}
 
-// export default renderIssueList;
+export default renderLabelList;
