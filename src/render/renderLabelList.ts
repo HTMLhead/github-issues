@@ -11,7 +11,7 @@ const makeIssueTplList = (labelList: Label[]) =>
 const combineIssueTplList = (labelTplList: string[]) =>
   labelTplList.reduce((bef: string, cur: string) => (bef += cur), "");
 
-async function renderLabelList(labelInfoList: Label[], ele: Element) {
+function renderLabelList(labelInfoList: Label[], ele: Element) {
   const labelTpl = pipe(makeIssueTplList, combineIssueTplList)(labelInfoList);
 
   if (ele) ele.innerHTML = labelTpl;

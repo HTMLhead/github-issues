@@ -11,7 +11,7 @@ const makeIssueTplList = (issueList: Issue[]) =>
 const combineIssueTplList = (issueTplList: string[]) =>
   issueTplList.reduce((bef: string, cur: string) => (bef += cur), "");
 
-async function renderIssueList(issueInfoList: Issue[], status: string, ele: Element) {
+function renderIssueList(issueInfoList: Issue[], status: string, ele: Element) {
   const getIssueListByStatus = status === "open" ? getOpenIssueList : getCloseIssueList;
   const issueTpl = pipe(getIssueListByStatus, makeIssueTplList, combineIssueTplList)(issueInfoList);
 
