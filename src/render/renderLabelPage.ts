@@ -1,18 +1,15 @@
-// event
-import { attachEvent } from "@/events/label";
-// render
-import { renderLabelList } from ".";
-// template
-import { getLabelTpl } from "@/tpl";
+// models
+import LabelForm from "@/models/LabelForm";
+import LabelList from "@/models/LabelList";
 // utils
 import { $, root } from "@/utils";
 
 function renderLabelPage(labelInfoList: Label[]) {
-  if (root) root.innerHTML = getLabelTpl();
+  const labelFormModel = new LabelForm(root);
+  labelFormModel.init();
   const labelList = $(".label-list");
-
-  renderLabelList(labelInfoList, labelList);
-  attachEvent();
+  const labelListModel = new LabelList(labelList, labelInfoList);
+  labelListModel.render();
 }
 
 export default renderLabelPage;
