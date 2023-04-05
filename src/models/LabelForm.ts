@@ -1,4 +1,3 @@
-import type { Store } from "@/store/proxy";
 import { proxy } from "@/store";
 // template
 import { getLabelTpl } from "@/tpl";

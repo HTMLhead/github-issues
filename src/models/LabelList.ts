@@ -12,8 +12,6 @@ class LabelList {
 
   render() {
     const labelTpl = this.labelList.map((label: Label) => getLabelItemTpl(label)).join("");
-    console.log(labelTpl);
-    console.log(this.target);
     this.target.innerHTML = labelTpl;
   }
 }

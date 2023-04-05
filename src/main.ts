@@ -9,8 +9,8 @@ async function init() {
   const issueInfoList = await getIssueInfoList();
   const labelInfoList = await getLabelInfoList();
 
-  proxy.issueList = issueInfoList;
   proxy.labelList = labelInfoList;
+  proxy.issueList = issueInfoList;
 
   attachEvent();
 }
