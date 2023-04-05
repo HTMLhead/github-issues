@@ -1,5 +1,6 @@
-import { addIssueStatusBtnEvent } from "../../helper/attachEvent";
-import { $ } from "../../utils";
+import { addIssueStatusBtnEvent } from ".";
+// utils
+import { $ } from "@/utils";
 
 async function attachEvent(containerEle: Element) {
   const openBtn = $(".open-count") as Element;
@@ -9,4 +10,4 @@ async function attachEvent(containerEle: Element) {
   addIssueStatusBtnEvent(closeBtn, openBtn, containerEle, "close");
 }
 
-export default attachEvent
+export default attachEvent;
