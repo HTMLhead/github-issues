@@ -104,12 +104,12 @@ export function getLabelTpl() {
     </div>
 
     <div class="new-label-button cursor-pointer p-1 py-1 base-outer flex items-center justify-center w-2/12 ml-4 bg-green-700 text-white">
-      <a href="#">New label</a>
+      New label
     </div>
   </div>
 
 
-  <form class="hidden p-3 mb-3 mt-6 border rounded-sm font-bold" id="new-label-form" action="/labels" accept-charset="UTF-8" method="post">
+  <form class="issue-label-form hidden p-3 mb-3 mt-6 border rounded-sm font-bold" id="new-label-form" action="/labels" accept-charset="UTF-8" method="post">
     <div class="form-group mt-0 mb-2"
       data-url-template="/labels/preview/" data-default-name="Label preview">
 
@@ -191,7 +191,7 @@ export function getLabelTpl() {
         class="form-group my-2 flex mt-10">
         <button type="button" class="base-outer p-2 mr-4"> Cancel
         </button>
-        <button id="label-create-button" type="submit" class="base-outer p-2 mr-4 bg-green-700 opacity-50 text-white" disabled=""> Create label
+        <button id="label-create-button" type="button" class="base-outer p-2 mr-4 bg-green-700 opacity-50 text-white"> Create label
         </button>
       </div>
       <!--END new label actions-->
